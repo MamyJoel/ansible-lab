@@ -1,0 +1,7 @@
+- name: Mon premier playbook
+  hosts: targets
+  become: false
+
+  tasks: 
+    - name: ping la machine
+      ansible.builtin.ping:

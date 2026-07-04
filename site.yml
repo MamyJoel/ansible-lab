@@ -1,0 +1,5 @@
+- name: Déployer Nginx
+  hosts: targets
+  become: true
+  roles: 
+    - nginx

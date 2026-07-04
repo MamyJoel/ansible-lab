@@ -1,0 +1,15 @@
+- name: Installation et démarrage du service nginx
+  hosts: targets
+  become: true
+
+  tasks:
+    - name: Installation
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+
+    - name: Démarrer le service nginx
+      ansible.builtin.service:
+        name: nginx
+        state: stopped
+

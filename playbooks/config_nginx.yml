@@ -1,0 +1,16 @@
+- name: Configuration de nginx
+  hosts: targets
+  become: true
+
+  tasks: 
+    - name: Copie de index.html vers vm-target
+      ansible.builtin.copy:
+        src: ~/ansible-lab/files/index.html
+        dest: /var/www/html/index.html
+      notify: Redemarrer nginx
+
+  handlers:
+    - name: Redemarrer nginx
+      ansible.builtin.service:
+        name: nginx
+        state: restarted

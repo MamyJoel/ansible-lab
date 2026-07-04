@@ -1,0 +1,14 @@
+---
+# tasks file for roles/nginx
+
+- name: Installation du paquet Nginx
+  ansible.builtin.apt:
+    name: nginx
+    state: present
+
+- name: Copie de index.html vers vm-target
+  ansible.builtin.copy:
+    src: index.html
+    dest: /var/www/html/index.html
+  notify: Redemarrer Nginx
+  

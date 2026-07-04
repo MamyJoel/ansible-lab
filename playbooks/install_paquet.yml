@@ -1,0 +1,11 @@
+- name: Installation de paquet
+  hosts: targets
+  become: true
+  vars: 
+    paquet: curl
+
+  tasks:
+    - name: Installation de {{ paquet }}
+      ansible.builtin.apt:
+        name: "{{ paquet }}"
+        state: present
