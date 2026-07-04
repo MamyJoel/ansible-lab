@@ -7,8 +7,8 @@
     state: present
 
 - name: Copie de index.html vers vm-target
-  ansible.builtin.copy:
-    src: index.html
+  ansible.builtin.template:
+    src: index.html.j2
     dest: /var/www/html/index.html
   notify: Redemarrer Nginx
   
